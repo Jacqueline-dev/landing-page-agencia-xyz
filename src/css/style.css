@@ -1,5 +1,6 @@
 html {
-  font-size: 62.5%
+  font-size: 62.5%;
+  scroll-behavior: scroll;
 }
 
 body {
@@ -18,6 +19,7 @@ font-weight:  400;
 }
 
 /* HEADER */
+
 .header {
   grid-area: header;
   background-color: #fff;
@@ -28,7 +30,7 @@ font-weight:  400;
   padding: 20px 40px;
   justify-content: space-between;
   align-items: center;
-  min-height: 75px;
+  min-height: 7.5rem;
 }
 
 .header h1{
@@ -42,8 +44,10 @@ font-weight:  400;
 }
 
 /* HERO */
+
 .hero {
   grid-area: hero;
+  
   height: 89vh;
   background: url('../images/lemons.jpg') center center no-repeat;
   background-size: cover;
@@ -69,11 +73,15 @@ font-weight:  400;
 }
 
 @-webkit-keyframes downarrow {
-  0%{-webkit-transform: translateY(0); opacity: 0.4;}
-  100%{-webkit-transform: translateY(0.4rem); opacity: 0.9;}
+  0%{
+    -webkit-transform: translateY(0); opacity: 0.4;
+  }
+  100%{
+    -webkit-transform: translateY(0.4rem); opacity: 0.9;
+  }
 }
 
-@media(max-width:425px){
+@media(max-width: 425px){
   .hero{
     height: 60vh;   
   }
@@ -109,7 +117,7 @@ font-weight:  400;
 .about .item p{
   font-weight: 400;
   font-size: 1.8rem;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 .about .image{
@@ -136,7 +144,15 @@ font-weight:  400;
   background: url('../images/sky.jpg') center center  no-repeat;
   background-size: cover;
 }
+@media (max-width: 768px) {
+  .about .item {
+      text-align: center;
+  }
 
+  .about .item a {
+      align-self: center;
+  }
+}
 @media (max-width: 425px) {
   .about .item{
     text-align: center;
@@ -186,23 +202,93 @@ font-weight:  400;
   background-color: lightpink;
 }
 
-@media (max-width: 425px){
-  .service {
+@media (max-width: 450px){
+  .services {
     grid-template-columns: 1fr;
   }
 }
 /* PROJECTS */
 .projects {
   grid-area: projects;
-  background-color: darkmagenta;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  
+}
+
+.projects img{
+ height: 100%;
+}
+
+.projects a:hover img{
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .projects{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  
+}
+
+@media (max-width: 425px){
+    .projects {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(1, 1fr);
+    }
 }
 
 /* FOOTER */
 .footer {
   grid-area: footer;
-  background-color: darkslategrey;
+  display: flex;
+  background-color: lightgreen;
+  flex-direction: column;
+  text-align: center;
+  padding: 100px 0;
 }
 
+.footer h4{
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.footer nav{
+  margin: 50px 0;
+}
+
+.footer nav ul{
+  display: flex;
+  justify-content:center;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.footer nav ul li a{
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 20px;
+}
+
+.footer nav ul li a:hover{
+  font-weight: 700;
+  color: #fff;  transition: 0.3s;
+
+}
+
+.footer .social i{
+  font-size: 2rem;
+  transition: 0.3s;
+}
+
+.footer .social a:hover{
+  color: #fff;
+}
+
+.footer .social a{
+  margin: 20px;
+}
 /*RESPONSIVE*/
 .header .menu{
   display: none;
